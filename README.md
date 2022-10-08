@@ -214,3 +214,7 @@ hiddenPostSummaryInHomePage: true
 ## License
 
 [MIT](https://github.com/nodejh/hugo-theme-mini/blob/master/LICENSE.md)
+
+## Icons
+
+Icons are from [FontAwesome Free Pack](https://fontawesome.com/)
