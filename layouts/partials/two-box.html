@@ -1,0 +1,17 @@
+<section id="two-box" class="two-box-section">
+  <div class="container">
+      <h2>{{ with .Site.Params.twoBoxHeading }}{{ . }}{{ else }}{{ i18n "twoBoxHeading" }}{{ end }}</h2>
+      <div class="two-box-content">
+          <div class="two-box-subsection">
+              <img src="/api/placeholder/80/80" alt="Slack Logo" class="logo">
+              <h3>Slack Community</h3>
+              <p>Brief description of your involvement in the Slack community. Highlight your role, contributions, and the value you bring to this platform.</p>
+          </div>
+          <div class="two-box-subsection">
+              <img src="/api/placeholder/80/80" alt="Lead Dev Meetups Logo" class="logo">
+              <h3>Lead Dev Meet-ups</h3>
+              <p>Overview of your participation in Lead Dev Meet-ups. Describe the events, your contributions, and how these meet-ups enhance your professional growth and network.</p>
+          </div>
+      </div>
+  </div>
+</section>

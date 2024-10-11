@@ -16,6 +16,15 @@ about:
 subscribe:
   other: Subscribe
 
+tabsHeading:
+  other: Tabs
+
+twoBoxHeading:
+  other: TwoBox
+
+contact:
+  other: Contact
+
 404title:
   other: 404 - Page Not Found
 

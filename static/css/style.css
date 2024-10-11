@@ -4,6 +4,7 @@
   --secondary-color: #f4f4f4;
   --accent-color: #007bff;
   --border-color: #ddd;
+  --bg-zero: #fff;
   --bg-accent-primary: #f4f4f4;
   --bg-accent-secondary: #e9ecef;
   --bg-accent-tertiary: #f8f9fa;
@@ -18,6 +19,15 @@ body {
   background-color: var(--bg-accent-primary);
 }
 
+a {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .container {
   width: 90%;
   max-width: 1200px;
@@ -29,6 +39,26 @@ header {
   background-color: var(--bg-header);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   padding: 1rem 0;
+  position: relative;
+}
+
+header .container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+}
+
+nav {
+  width: 100%;
 }
 
 nav ul {
@@ -37,6 +67,10 @@ nav ul {
   margin: 0;
   display: flex;
   justify-content: space-around;
+}
+
+nav li {
+  margin: 0 1rem;
 }
 
 nav a {
@@ -74,4 +108,203 @@ h1, h2, h3 {
 .profile-section .tagline {
   font-weight: bold;
   font-size: 120%;
+}
+
+.vertical-tabs-section {
+  background-color: var(--bg-accent-secondary);
+  padding: 2rem 0;
+  margin: 2rem -1rem 0;
+}
+
+.vertical-tabs {
+  background-color: var(--bg-zero);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.tab {
+  display: inline-block;
+  height: 80px;
+  width: 160px;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-zero);
+  transition: background-color 0.3s ease;
+}
+
+.tab:last-child {
+  border-bottom: none;
+}
+
+.tab img {
+  max-width: 160px;
+  max-height: 80px;
+}
+
+.tab-content {
+  padding: 1rem;
+}
+
+.tab-description {
+  display: none;
+}
+
+.tab-description:target {
+  display: block;
+}
+
+.tab:target {
+  background-color: var(--accent-color);
+}
+
+.two-box-section {
+  background-color: var(--bg-accent-tertiary);
+  padding: 2rem 0;
+  margin: 0 -1rem 2rem;
+}
+
+.two-box-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.two-box-subsection {
+  flex: 1;
+  background-color: var(--bg-zero);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.two-box-subsection .logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+footer {
+  background-color: var(--bg-header);
+  color: var(--primary-color);
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+#social a {
+  margin: 0 4px;
+  text-decoration: none;
+}
+
+.social-icon {
+  transition: filter 0.3s ease;
+}
+
+.social-icon:hover {
+  text-decoration: none;
+  fill: var(--accent-color);
+}
+
+@media (min-width: 769px) {
+  .vertical-tabs {
+    display: flex;
+  }
+
+  .tabs {
+    width: 160px;
+    border-right: 1px solid var(--border-color);
+  }
+
+  .tab-content {
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-toggle-label {
+    display: block;
+    padding: 1rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    order: -1;
+  }
+
+  nav {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--bg-header);
+    z-index: 1000;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  nav li {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav a {
+    display: block;
+    padding: 1rem;
+  }
+
+  .nav-toggle:checked ~ nav ul {
+    max-height: 300px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .nav-toggle:checked + .nav-toggle-label {
+    color: var(--accent-color);
+  }
+
+  .profile-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-section .avatar {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .tabs {
+    flex-direction: row;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .tab {
+    border-bottom: none;
+    border-right: 1px solid var(--border-color);
+  }
+
+  .tab:last-child {
+    border-right: none;
+  }
+
+  .two-box-content {
+    flex-direction: column;
+  }
 }

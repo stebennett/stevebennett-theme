@@ -1,0 +1,32 @@
+<section id="vertical-tabs" class="vertical-tabs-section">
+  <div class="container">
+      <h2>{{ with .Site.Params.tabsHeading }}{{ . }}{{ else }}{{ i18n "tabsHeading" }}{{ end }}</h2>
+      <div class="vertical-tabs">
+          <div class="tabs">
+              <a href="#company1" class="tab" id="tab-company1">
+                  <img src="/api/placeholder/160/80" alt="Company 1 Logo">
+              </a>
+              <a href="#company2" class="tab" id="tab-company2">
+                  <img src="/api/placeholder/160/80" alt="Company 2 Logo">
+              </a>
+              <a href="#company3" class="tab" id="tab-company3">
+                  <img src="/api/placeholder/160/80" alt="Company 3 Logo">
+              </a>
+          </div>
+          <div class="tab-content">
+              <div id="company1" class="tab-description">
+                  <h3>Company 1</h3>
+                  <p>Description of your role and achievements at Company 1.</p>
+              </div>
+              <div id="company2" class="tab-description">
+                  <h3>Company 2</h3>
+                  <p>Description of your role and achievements at Company 2.</p>
+              </div>
+              <div id="company3" class="tab-description">
+                  <h3>Company 3</h3>
+                  <p>Description of your role and achievements at Company 3.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
