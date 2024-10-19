@@ -1,0 +1,9 @@
+{
+  "plugins":{
+    "commit-analyzer":{
+      "options":{
+        "minor_release_rules":"feat,chore,*🚀"
+      }
+    }
+  }
+}
