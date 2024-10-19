@@ -131,8 +131,8 @@ h1, h2, h3 {
 
 .tab {
   display: inline-block;
-  height: 80px;
-  width: 160px;
+  height: 90px;
+  width: 180px;
   border-bottom: 1px solid var(--border-color);
   background-color: var(--bg-zero);
   transition: background-color 0.3s ease;
@@ -145,6 +145,7 @@ h1, h2, h3 {
 .tab img {
   max-width: 160px;
   max-height: 80px;
+  margin: 5px;
 }
 
 .tab-content {
@@ -153,6 +154,10 @@ h1, h2, h3 {
 
 .tab-description {
   display: none;
+}
+
+.tab-description:first {
+  display: block;
 }
 
 .tab-description:target {
@@ -218,7 +223,7 @@ footer {
   }
 
   .tabs {
-    width: 160px;
+    width: 180px;
     border-right: 1px solid var(--border-color);
   }
 
