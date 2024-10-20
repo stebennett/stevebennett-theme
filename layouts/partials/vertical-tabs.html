@@ -9,15 +9,15 @@
 
 {{ $sortedItems := sort $tabItems "date" "desc" }}
 
-<section id="vertical-tabs" class="vertical-tabs-section">
+<section id="vertical-tabs" class="section vertical-tabs-section">
   <div class="container">
       <h2>{{ with .Site.Params.tabsHeading }}{{ . }}{{ else }}{{ i18n "tabsHeading" }}{{ end }}</h2>
       <div class="vertical-tabs">
           <div class="tabs">
             {{ range $index, $item := $sortedItems }}
-                <a href="#tab{{ $index }}" class="tab" id="tab-{{ $index }}">
+                <div class="tab" id="tab-{{ $index }}" data-target="tab{{ $index }}">
                     <img src="{{ $item.image | absURL }}" alt="{{ $item.title }} logo">        
-                </a>
+                </div>
             {{ end }}
           </div>
           <div class="tab-content">
