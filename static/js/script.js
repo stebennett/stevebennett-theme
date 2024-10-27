@@ -31,3 +31,43 @@ document.addEventListener('DOMContentLoaded', function() {
     // Activate the first tab by default
     tabs[0].click();
   });
+
+  document.getElementById('contactForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    console.log('Sending mail');
+
+    
+
+    try {
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData)
+
+      console.log(data);
+
+      const response = await fetch(CONFIG.submitUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'X-API-Key': CONFIG.apiKey,
+        },
+        body: JSON.stringify({ "data": data }),
+      })
+
+      if (!response.ok) {
+        const error = await response.json()
+        console.log(error);
+        throw new Error('Network response was not ok');
+      }
+
+      const submission = await response.json()
+
+      alert('Message sent successfully');
+      this.reset();
+
+      console.log('Submitted data:', submission)
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+      alert('There was a problem sending your message');
+    }
+  });
