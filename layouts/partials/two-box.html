@@ -13,7 +13,9 @@
       <div class="two-box-content">
         {{ range $item := $boxItems }}
             <div class="two-box-subsection">
-                <img src="{{ $item.image | absURL }}" alt="{{ $item.title }} logo">
+                <div class="logo-wrapper">
+                    <img src="{{ $item.image | absURL }}" alt="{{ $item.title }} logo">
+                </div>
                 <h3>{{ $item.title }}</h3>
                 <p>{{ $item.content }}</p>
             </div>
