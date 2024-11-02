@@ -1,45 +1,42 @@
 {{ define "main" }}
-
-<section id="single">
-    <h1 class="title">{{ .Title }}</h1>
-
-    <div class="tip">
-        <time datetime="{{ .PublishDate }}">{{ i18n "publishDateFull" . }}</time>
-        <span class="split">
-          ·
-        </span>
-        <span>
-          {{ i18n "wordCount" . }}
-        </span>
-        <span class="split">
-          ·
-        </span>
-        <span>
-          {{ i18n "minuteRead" . }}
-        </span>
+<article id="article-single">
+    <h1 class="article-title">{{ .Title }}</h1>
+    
+    <div class="article-tip">
+        <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+        <span class="split">·</span>
+        <span>{{ .WordCount }} words</span>
+        <span class="split">·</span>
+        <span>{{ .ReadingTime }} min read</span>
     </div>
 
-    
     {{ if or .Site.Params.showToc .Params.showToc }}
-        {{ partial "toc.html" . }}
+    <nav class="article-toc">
+        <h2 class="article-toc-title">Table of Contents</h2>
+        {{ .TableOfContents }}
+    </nav>
     {{ end }}
 
-
-    <div class="content">
-      {{ .Content }}
+    <div class="article-content">
+        {{ .Content }}
     </div>
 
     {{ with .Params.tags }}
-        <div class="tags">
-            {{ range . }}
-                <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
-            {{ end }}
-        </div>
-    {{ end}}
-    
-    {{ partial "comment.html" . }}
+    <div class="article-tags">
+        {{ range . }}
+            <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
+        {{ end }}
+    </div>
+    {{ end }}
 
-</section>
+    <div class="article-author">
+      <h3 class="article-author-header">About the Author</h3>
+      {{ partial "profile.html" (dict "page" $ "mainContent" false) }}
+    </div>
 
+    {{ if .Site.Params.showComments }}
+        {{ partial "comments.html" . }}
+    {{ end }}
+</article>
 {{ end }}
 

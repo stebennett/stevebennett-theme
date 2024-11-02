@@ -1,11 +1,19 @@
+{{ $site := .page.Site }}
+
 <div class="container">
   <section id="profile" class="profile-section">
     <img class="avatar" alt="{{ .Site.Params.Name }} avatar" src="{{ "/images/avatar.png" | relURL }}" />
     <div>
       <hgroup role="group" aria-roledescription="Heading group">
-        <h1>{{ .Site.Params.Name }}</h1>
-        <p class="tagline" aria-roledescription="subtitle">{{ .Site.Params.Tagline }}</p>
-        {{ with .Site.Params.ShortBio }}
+        {{ if .mainContent }}
+        <h1>{{ $site.Params.Name }}</h1>
+        {{ else }}
+        <h4>{{ $site.Params.Name }}</h4>
+        {{ end }}
+
+
+        <p class="tagline" aria-roledescription="subtitle">{{ $site.Params.Tagline }}</p>
+        {{ with $site.Params.ShortBio }}
         <p>{{ . | markdownify }}</p>
         {{ end }}
       </hgroup>

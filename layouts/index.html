@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ partial "profile.html" . }}
+{{ partial "profile.html" (dict "page" $ "mainContent" true) }}
 {{ partial "vertical-tabs.html" . }}
 {{ partial "two-box.html" . }}
 {{ partial "contact.html"  . }}

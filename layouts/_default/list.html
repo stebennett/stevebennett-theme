@@ -30,7 +30,10 @@
         </div>
     {{ end }}
 
-
+    <div class="article-author">
+        <h3 class="article-author-header">About the Author</h3>
+        {{ partial "profile.html" (dict "page" $ "mainContent" false) }}
+      </div>
 </section>
 
 
