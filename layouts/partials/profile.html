@@ -1,15 +1,22 @@
-<header class="profile">
-    {{ if .Site.Params.avatarLink }}
-        <a href="{{ .Site.Params.avatarLink }}">
-          <img class="avatar" alt="avatar" src="{{ "/images/avatar.png" | relURL }}" />
-        </a>
-    {{ else }}
-        <img class="avatar" alt="avatar" src="{{ "/images/avatar.png" | relURL }}" />
-    {{ end }}
+{{ $site := .page.Site }}
 
-    <h1>{{ .Site.Title }}</h1>
-    
-    {{ with .Site.Params.Bio }}
-      <h2>{{ . | markdownify }}</h2>
-    {{ end }}
-</header>
+<div class="container">
+  <section id="profile" class="profile-section">
+    <img class="avatar" alt="{{ .Site.Params.Name }} avatar" src="{{ "/images/avatar.png" | relURL }}" />
+    <div>
+      <hgroup role="group" aria-roledescription="Heading group">
+        {{ if .mainContent }}
+        <h1>{{ $site.Params.Name }}</h1>
+        {{ else }}
+        <h4>{{ $site.Params.Name }}</h4>
+        {{ end }}
+
+
+        <p class="tagline" aria-roledescription="subtitle">{{ $site.Params.Tagline }}</p>
+        {{ with $site.Params.ShortBio }}
+        <p>{{ . | markdownify }}</p>
+        {{ end }}
+      </hgroup>
+      </div>
+    </section>
+</div>

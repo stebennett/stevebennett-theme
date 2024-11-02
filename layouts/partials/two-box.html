@@ -1,0 +1,25 @@
+{{ $dir := .Site.Params.homeBoxesDir | default "homeBoxes" }}
+{{ $boxItems := slice }}
+
+{{ range (readDir (printf "content/%s" $dir)) }}
+    {{ with $.Site.GetPage (printf "%s/%s" $dir .Name) }}
+        {{ $boxItems = $boxItems | append (dict "title" .Title "content" .Summary "image" .Params.image) }}
+    {{ end }}
+{{ end }}
+
+<section id="two-box" class="two-box-section">
+  <div class="container">
+      <h2>{{ with .Site.Params.twoBoxHeading }}{{ . }}{{ else }}{{ i18n "twoBoxHeading" }}{{ end }}</h2>
+      <div class="two-box-content">
+        {{ range $item := $boxItems }}
+            <div class="two-box-subsection">
+                <div class="logo-wrapper">
+                    <img src="{{ $item.image | absURL }}" alt="{{ $item.title }} logo">
+                </div>
+                <h3>{{ $item.title }}</h3>
+                <p>{{ $item.content }}</p>
+            </div>
+        {{ end }}
+      </div>
+  </div>
+</section>

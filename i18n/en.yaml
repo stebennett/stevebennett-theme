@@ -2,16 +2,28 @@ home:
   other: Home
 
 archive:
-  other: Archive
+  other: Writing
+
+notes:
+  other: Notes
 
 tags:
   other: Tags
 
 about:
-  other: About
+  other: About me
 
 subscribe:
   other: Subscribe
+
+tabsHeading:
+  other: Tabs
+
+twoBoxHeading:
+  other: TwoBox
+
+contact:
+  other: Contact
 
 404title:
   other: 404 - Page Not Found
@@ -43,8 +55,7 @@ postsOlder:
 
 poweredBy:
   other: >-
-    Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme based on <a
-    href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+    Powered by <a href='http://www.gohugo.io/'>Hugo</a>
 
 publishDateShort:
   other: '{{ .PublishDate.Format "Jan 2" }}'
