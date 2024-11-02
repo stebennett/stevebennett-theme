@@ -7,7 +7,7 @@
 				<li><a href="{{ "/" | relURL }}">{{ with .Site.Params.home }}{{ . }}{{ else }}{{ i18n "home" }}{{ end }}</a></li>
 				<li><a href="{{ "/posts" | relURL }}">{{ with .Site.Params.archive }}{{ . }}{{ else }}{{ i18n "archive" }}{{ end }}</a></li>
 				<li><a href="{{ "/notes" | relURL }}">{{ with .Site.Params.notes }}{{ . }}{{ else }}{{ i18n "notes" }}{{ end }}</a></li>
-				<li><a href="{{ "/about" | relURL }}">{{ with .Site.Params.about }}{{ . }}{{ else }}{{ i18n "about" }}{{ end }}</a></li>
+				<!--<li><a href="{{ "/about" | relURL }}">{{ with .Site.Params.about }}{{ . }}{{ else }}{{ i18n "about" }}{{ end }}</a></li>-->
 				{{ range $element := .Site.Params.Links }}
 				<li><a href="{{ $element.path }}">{{ $element.name }}</a></li>
 				{{ end }}
