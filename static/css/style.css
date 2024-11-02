@@ -807,3 +807,7 @@ textarea.form-input {
   color: var(--primary-color);
   margin-bottom: 1rem;
 }
+
+#page-404 {
+  text-align: center;
+}
