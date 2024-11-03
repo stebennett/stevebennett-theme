@@ -18,6 +18,8 @@ body {
   padding: 0;
   background-color: var(--bg-accent-primary);
   overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 a {
@@ -30,10 +32,10 @@ a:hover {
 }
 
 .container {
-  width: 90%;
-  max-width: 1200px;
+  width: min(90%, 1200px);
   margin: 0 auto;
   padding: 1rem;
+  box-sizing: border-box;
 }
 
 header {
@@ -114,10 +116,10 @@ h1, h2, h3 {
 .vertical-tabs-section {
   background-color: var(--bg-accent-secondary);
   padding: 2rem 0;
-  margin: 2rem 0rem 0;
+  margin: 2rem 0;
   width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .vertical-tabs {
@@ -136,6 +138,10 @@ h1, h2, h3 {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   white-space: nowrap;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .tabs::-webkit-scrollbar {
@@ -194,10 +200,18 @@ h1, h2, h3 {
 .two-box-section {
   background-color: var(--bg-accent-tertiary);
   padding: 2rem 0;
-  margin: 0 -1rem 2rem;
+  margin: 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .two-box-content {
+  width: min(90% 1200px);
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   gap: 2rem;
@@ -411,8 +425,15 @@ textarea.form-input {
     border-right: none;
   }
 
+  .two-box-section {
+    padding: 2rem 1rem;
+  }
+
   .two-box-content {
     flex-direction: column;
+    width: 100%;
+    padding: 0 1rem;
+
   }
 
   .contact-form {
@@ -513,8 +534,10 @@ textarea.form-input {
 
 @media(max-width: 768px) {
   #archive {
-    padding: 1.5rem;
+    padding: 1rem;
     margin: 1rem;
+    width: auto;
+    box-sizing: border-box;
   }
 
   .value {
@@ -810,4 +833,20 @@ textarea.form-input {
 
 #page-404 {
   text-align: center;
+}
+
+.article-content {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.article-content pre {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+nav ul {
+  box-sizing: border-box;
+  max-width: 100%;
 }
