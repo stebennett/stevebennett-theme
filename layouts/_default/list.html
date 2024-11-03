@@ -1,6 +1,12 @@
 {{ define "main" }}
 
 <section id="archive">
+    {{ with .Site.Params.contentTypes.titles }}
+        {{ with index . $.Section }}
+            <h2 class="section-title">{{ . }}</h2>
+        {{ end }}
+    {{ end }}
+
     {{ range .Data.Pages.GroupByDate "2006" }}
         <div class="group">
             <h3 class="key">
